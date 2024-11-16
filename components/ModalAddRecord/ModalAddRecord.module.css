@@ -1,0 +1,76 @@
+.form label {
+	display: block;
+}
+
+.form input[type="text"] {
+	width: 100%;
+}
+
+.form input[type="number"] {
+	display: block;
+}
+
+.inputPrice {
+	display: flex;
+	justify-content: space-between;
+}
+
+.form textarea {
+	width: 100%;
+	resize: none;
+}
+
+.form select {
+	width: 100%;
+	padding: 5px;
+}
+
+.form p {
+	min-height: 1rem;
+	padding: 0px;
+	margin: 0px;
+	font-size: small;
+	color: rgb(175, 42, 60);
+}
+
+.rowWrapper {
+	margin-bottom: 1rem;
+}
+
+.form button {
+	width: 100%;
+	cursor: pointer;
+	background-color: #00ac64;
+	color: #f0f8ff;
+	font-weight: 500;
+	font-size: 1.3rem;
+	padding: 10px;
+	border: 0px;
+	border-radius: 8px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	-ms-border-radius: 8px;
+	-o-border-radius: 8px;
+	transition: 0.3s ease-in-out all;
+	-webkit-transition: 0.3s ease-in-out all;
+	-moz-transition: 0.3s ease-in-out all;
+	-ms-transition: 0.3s ease-in-out all;
+	-o-transition: 0.3s ease-in-out all;
+}
+
+.form button:hover {
+	background-color: #007bac;
+}
+
+.form button:disabled,
+.form button:disabled:hover {
+	background-color: grey;
+	cursor: progress;
+}
+
+.form input:focus,
+.form select:focus,
+.form textarea:focus {
+	outline-color: #bdd0db;
+	border-color: #bdd0db;
+}

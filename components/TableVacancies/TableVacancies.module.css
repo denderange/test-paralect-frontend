@@ -1,0 +1,20 @@
+.rowSelected {
+	background-color: var(--mantine-color-blue-light);
+}
+
+.invitation {
+	color: #00bd48;
+	font-weight: 600;
+}
+
+.notviewed {
+	color: #a5a5a5;
+}
+
+.tviewed {
+	color: #170097;
+}
+
+.refusal {
+	color: #aa001c;
+}
