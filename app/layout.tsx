@@ -3,6 +3,7 @@ import React from "react";
 import { MantineProvider, ColorSchemeScript } from "@mantine/core";
 import { theme } from "../theme";
 import { TanstackProvider } from "../components/providers/TanstackProvider";
+import "./global.css";
 
 export const metadata = {
 	title: "Paralect test app",

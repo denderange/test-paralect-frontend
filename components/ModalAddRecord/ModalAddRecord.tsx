@@ -83,90 +83,88 @@ const ModalAddRecord = ({ opened, close, redactVacancy }: Props) => {
 	}, [presetData, reset]);
 
 	return (
-		<>
-			<Modal
-				opened={opened}
-				onClose={close}
-				title={redactVacancy ? "Редактирование" : "Добавить запись"}>
-				<form
-					onSubmit={handleSubmit(onSubmit)}
-					className={styles.form}>
-					<div className={styles.rowWrapper}>
-						<label>Компания</label>
+		<Modal
+			opened={opened}
+			onClose={close}
+			title={redactVacancy ? "Редактирование" : "Добавить запись"}>
+			<form
+				onSubmit={handleSubmit(onSubmit)}
+				className={styles.form}>
+				<div className={styles.rowWrapper}>
+					<label>Компания</label>
+					<input
+						type='text'
+						placeholder='Название Компании'
+						{...register("company")}
+					/>
+					<p>{errors.company && <>{errors.company.message}</>}</p>
+				</div>
+
+				<div className={styles.rowWrapper}>
+					<label>Вакансия</label>
+					<input
+						type='text'
+						placeholder='Название Вакансии'
+						{...register("vacancy")}
+					/>
+					<p>{errors.vacancy && <>{errors.vacancy.message}</>}</p>
+				</div>
+
+				<div className={styles.rowWrapper}>
+					<label>Зарплатная вилка</label>
+					<div className={styles.inputPrice}>
 						<input
-							type='text'
-							placeholder='Название Компании'
-							{...register("company")}
+							type='number'
+							placeholder='От'
+							{...register("salary_from", { valueAsNumber: true })}
 						/>
-						<p>{errors.company && <>{errors.company.message}</>}</p>
-					</div>
-
-					<div className={styles.rowWrapper}>
-						<label>Вакансия</label>
 						<input
-							type='text'
-							placeholder='Название Вакансии'
-							{...register("vacancy")}
+							type='number'
+							placeholder='До'
+							{...register("salary_to", { valueAsNumber: true })}
 						/>
-						<p>{errors.vacancy && <>{errors.vacancy.message}</>}</p>
 					</div>
+					<p>{errors.salary_to && <>{errors.salary_to.message}</>}</p>
+				</div>
 
-					<div className={styles.rowWrapper}>
-						<label>Зарплатная вилка</label>
-						<div className={styles.inputPrice}>
-							<input
-								type='number'
-								placeholder='От'
-								{...register("salary_from", { valueAsNumber: true })}
-							/>
-							<input
-								type='number'
-								placeholder='До'
-								{...register("salary_to", { valueAsNumber: true })}
-							/>
-						</div>
-						<p>{errors.salary_to && <>{errors.salary_to.message}</>}</p>
-					</div>
+				<div className={styles.rowWrapper}>
+					<label>Статус отклика</label>
+					<select {...register("response_status")}>
+						<option
+							value='не просмотрено'
+							style={{ color: "gray" }}>
+							не просмотрено
+						</option>
+						<option value='просмотрено'>просмотрено</option>
+						<option
+							value='отказ'
+							style={{ color: "red" }}>
+							отказ
+						</option>
+						<option
+							value='приглашение'
+							style={{ color: "green" }}>
+							приглашение
+						</option>
+					</select>
+				</div>
 
-					<div className={styles.rowWrapper}>
-						<label>Статус отклика</label>
-						<select {...register("response_status")}>
-							<option
-								value='не просмотрено'
-								style={{ color: "gray" }}>
-								не просмотрено
-							</option>
-							<option value='просмотрено'>просмотрено</option>
-							<option
-								value='отказ'
-								style={{ color: "red" }}>
-								отказ
-							</option>
-							<option
-								value='приглашение'
-								style={{ color: "green" }}>
-								приглашение
-							</option>
-						</select>
-					</div>
+				<div className={styles.rowWrapper}>
+					<label>Заметка</label>
+					<textarea
+						rows={10}
+						{...register("note")}
+					/>
+					<p>{errors.note && <>{errors.note.message}</>}</p>
+				</div>
 
-					<div className={styles.rowWrapper}>
-						<label>Заметка</label>
-						<textarea
-							rows={10}
-							{...register("note")}
-						/>
-						<p>{errors.note && <>{errors.note.message}</>}</p>
-					</div>
-
-					<button
-						type='submit'
-						disabled={isSubmitting}>
-						{redactVacancy ? "Обновить" : "Отправить"}
-					</button>
-				</form>
-			</Modal>
-		</>
+				<button
+					type='submit'
+					disabled={isSubmitting}>
+					{redactVacancy ? "Обновить" : "Отправить"}
+				</button>
+			</form>
+		</Modal>
 	);
 };
 

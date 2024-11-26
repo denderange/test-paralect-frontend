@@ -110,7 +110,7 @@ const TableVacancies = () => {
 	}
 
 	return (
-		<>
+		<div>
 			<Table
 				miw={800}
 				verticalSpacing='sm'>
@@ -151,7 +151,7 @@ const TableVacancies = () => {
 				close={close}
 				redactVacancy={vacancyRedact}
 			/>
-		</>
+		</div>
 	);
 };
 

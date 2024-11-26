@@ -4,9 +4,9 @@ import { ToastContainer } from "react-toastify";
 
 export default function HomePage() {
 	return (
-		<Container size={"xl"}>
+		<div className='wrapper'>
 			<TableVacancies />
 			<ToastContainer />
-		</Container>
+		</div>
 	);
 }
